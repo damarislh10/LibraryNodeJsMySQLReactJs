@@ -11,7 +11,6 @@ function App() {
     const getBooks = async () => {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data);
       setBook(data);
     };
     getBooks();
@@ -24,7 +23,7 @@ function App() {
         <div className="row">
           <div className="col-7">
             <h2 style={{ textAlign: "center" }}>Book List</h2>
-            <BookList />
+            <BookList books={books}/>
           </div>
           <div className="col-5">
             <h2 style={{ textAlign: "center" }}>Book Form</h2>
