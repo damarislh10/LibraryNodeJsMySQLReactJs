@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Fragment } from "react";
+import { Navbar } from "./components/Navbar";
 import { useEffect, useState } from "react";
 import { url } from "./helpers/dataApi";
-import BookList from "./components/BookList";
+import { BookList } from "./components/BookList";
 
 function App() {
   const [books, setBook] = useState([]);
@@ -18,16 +18,20 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Fragment>
+      <Navbar brand="Library App" />
       <div className="container">
         <div className="row">
-          <h2>Book List</h2>
-          <div>
-            <h2>Book form</h2>
+          <div className="col-7">
+            <h2 style={{ textAlign: "center" }}>Book List</h2>
+            <BookList />
+          </div>
+          <div className="col-5">
+            <h2 style={{ textAlign: "center" }}>Book Form</h2>
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

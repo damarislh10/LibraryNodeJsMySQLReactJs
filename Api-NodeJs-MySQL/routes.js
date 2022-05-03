@@ -43,7 +43,6 @@ routes.delete("/:id", (req, res) => {
 routes.put("/:id", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
-    console.log(req.body);
     conn.query(
       "UPDATE books set ? WHERE idbooks = ?",
       [req.body, req.params.id],
@@ -53,7 +52,7 @@ routes.put("/:id", (req, res) => {
         res.send("book updated!");
       }
     );
-  }); // delete
+  });
 });
 
 module.exports = routes;

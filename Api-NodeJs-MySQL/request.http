@@ -19,10 +19,11 @@ DELETE http://localhost:9000/api/3 HTTP/1.1
 ### 
 
 PUT  http://localhost:9000/api/1 HTTP/1.1
+Content-Type: application/json
 
 {
-    "titulo":"Prueba update",
-    "autor": "prueba",
+    "titulo":"Cien años de soledad",
+    "autor": "Gabriel Garcia Marquez",
     "edicion": 2
 }
 
