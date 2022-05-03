@@ -24,7 +24,7 @@ export const Form = ({ book, setBook }) => {
       body: JSON.stringify(book),
     };
     const res = fetch(url, requestInit);
-    const data = res.json();
+    const data = res.text();
     console.log(data);
 
     // reiniciando state de libro
@@ -75,9 +75,11 @@ export const Form = ({ book, setBook }) => {
           id="edition"
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
+      <div className="text-center">
+        <button type="submit" className="btn btn-dark w-50">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };

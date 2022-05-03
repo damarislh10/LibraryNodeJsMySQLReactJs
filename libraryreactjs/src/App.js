@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Navbar } from "./components/Navbar";
-import { useEffect, useState } from "react";
 import { url } from "./helpers/dataApi";
 import { BookList } from "./components/BookList";
 import { Form } from "./components/Form";
@@ -13,6 +12,7 @@ function App() {
     autor: "",
     edicion: 0,
   });
+  const [listUpdated, setListUpdated] = useState(false);
 
   useEffect(() => {
     const getBooks = async () => {
@@ -21,7 +21,8 @@ function App() {
       setBooks(data);
     };
     getBooks();
-  }, []);
+    setListUpdated(false);
+  }, [listUpdated]);
 
   return (
     <Fragment>
@@ -30,7 +31,7 @@ function App() {
         <div className="row">
           <div className="col-7">
             <h2 style={{ textAlign: "center" }}>Book List</h2>
-            <BookList books={books} />
+            <BookList book={book} books={books} setBook={setBook} setListUpdated={setListUpdated} />
           </div>
           <div className="col-5">
             <h2 style={{ textAlign: "center" }}>Book Form</h2>
