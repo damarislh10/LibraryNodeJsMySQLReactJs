@@ -14,16 +14,16 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:9000/api/3 HTTP/1.1
+DELETE http://localhost:9000/api/8 HTTP/1.1
 
 ### 
 
-PUT  http://localhost:9000/api/1 HTTP/1.1
+PUT  http://localhost:9000/api/4 HTTP/1.1
 Content-Type: application/json
 
 {
-    "titulo":"Cien años de soledad",
-    "autor": "Gabriel Garcia Marquez",
-    "edicion": 2
+    "titulo":"Saltamontes va de viaje",
+    "autor": "Arnold Lobel",
+    "edicion": 3
 }
 
