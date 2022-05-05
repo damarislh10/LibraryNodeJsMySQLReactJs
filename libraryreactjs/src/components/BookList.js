@@ -63,9 +63,6 @@ export const BookList = ({ book, setBook, books, setListUpdated }) => {
                 >
                   Delete
                 </button>
-              </div>
-
-              <div className="mb-3">
                 <button
                   onClick={() => handleUpdate(book.idbooks)}
                   className="btn btn-warning"
@@ -73,6 +70,7 @@ export const BookList = ({ book, setBook, books, setListUpdated }) => {
                   Update
                 </button>
               </div>
+
             </td>
           </tr>
         ))}
