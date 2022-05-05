@@ -12,6 +12,31 @@ export const BookList = ({ book, setBook, books, setListUpdated }) => {
 
     setListUpdated(true);
   };
+
+  let { titulo, autor, edicion } = book;
+
+  const handleUpdate = (id) => {
+    edicion = parseInt(edicion, 10);
+    // validacion de los datos
+    if (titulo === "" || autor === "" || edicion <= 0) {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+    const requestInit = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(book),
+    };
+    fetch(`${url}/${id}`, requestInit)
+      .then((res) => res.text())
+      .then((res) => console.log(res));
+    setBook({
+      titulo: "",
+      autor: "",
+      edicion: 0,
+    });
+    setListUpdated(true);
+  };
   return (
     <table className="table text-center">
       <thead className="text-center">
@@ -38,7 +63,15 @@ export const BookList = ({ book, setBook, books, setListUpdated }) => {
                 >
                   Delete
                 </button>
-                <button className="btn btn-warning">Edit</button>
+              </div>
+
+              <div className="mb-3">
+                <button
+                  onClick={() => handleUpdate(book.idbooks)}
+                  className="btn btn-warning"
+                >
+                  Update
+                </button>
               </div>
             </td>
           </tr>
